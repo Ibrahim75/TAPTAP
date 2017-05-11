@@ -34,12 +34,12 @@ if(isset($_POST['formconnexion']))
 			
 			// echo "bonjour : " . $userinfo['NOM'] . $userinfo['id'] ;
 			// echo "vous êtes connecté";
-			header('Location: ../www/#/rechercherCours');
+			header('Location: ../www/#/profil');
 		}
 		else{
 
 			// echo "mdp incorrecte";
-			header('Location: ../www/#/connexion?msg_connexion=Mot de passe incorrecte');
+			header('Location: connexion.php?msg_connexion=Mot de passe incorrecte');
 		}
 
 	}

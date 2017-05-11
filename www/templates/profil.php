@@ -16,6 +16,8 @@
       <!-- <img src="<?php echo $_SESSION['PHOTO']?>" style="display: block; width: 50%; height: auto; margin-left: auto; margin-right: auto;"> -->
     </div>
 
+    <a href="deconnexion.php" id="profil-button2" class="button button-positive  button-block">Se déconnecter</a>
+
     <div id="profil-markdown13" style="text-align:center;" class="show-list-numbers-and-dots">
       <p style="color:#000000;">
         <strong> <?php echo $_SESSION['NOM']; ?>  <?php echo $_SESSION['PRENOM']; ?></strong>
@@ -85,8 +87,6 @@
         <?php
       }
       ?>
-
-
 
 
     <a ui-sref="demander" id="profil-button2" class="button button-positive  button-block">Demander un cours</a>
