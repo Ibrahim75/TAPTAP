@@ -25,23 +25,26 @@ if(isset($_POST['formconnexion']))
 			$_SESSION['TITRE'] = $userinfo['TITRE'];
 			$_SESSION['DESCRIPTION'] = $userinfo['DESCRIPTION'];
 			$_SESSION['EXPERIENCE'] = $userinfo['EXPERIENCE'];
+			$_SESSION['USER_STATUS'] = $userinfo['USER_STATUS'];
+			$_SESSION['NBR_HEURE_DISP'] = $userinfo['NBR_HEURE_DISP'];
+			$_SESSION['NBR_HEURE_RECU'] = $userinfo['NBR_HEURE_RECU'];
 
 			// header('Location: Accueil.php');
 			//header("Location : profil.php?id=" . $_SESSION['id']);
 			
 			// echo "bonjour : " . $userinfo['NOM'] . $userinfo['id'] ;
 			// echo "vous êtes connecté";
-			header('Location: profil.php?msg_connexion=Mot de passe incorrecte');
+			header('Location: ../www/#/rechercherCours');
 		}
 		else{
 
 			// echo "mdp incorrecte";
-			header('Location: connexion.php?msg_connexion=Mot de passe incorrecte');
+			header('Location: ../www/#/connexion?msg_connexion=Mot de passe incorrecte');
 		}
 
 	}
 	else{
-			header('Location: connexion.php?msg_connexion=Veuillez remplir tous les champs');
+			header('Location: ../www/#/connexion?msg_connexion=Veuillez remplir tous les champs');
 		// echo "veuillez remplir tous les champs";
 
 	}

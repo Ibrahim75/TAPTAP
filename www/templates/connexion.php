@@ -20,10 +20,14 @@
       <?php
       //Connection au serveur de base de donnée
       include("bdd_connect.php");
-      //Connection au serveur de base de donnée
-  
-      ?>
 
+      // $test = $bdd->query("SELECT MAIl FROM users WHERE USER_ID=3 ");
+      // $donnees = $test->fetch();
+      // echo $donnees['MAIl'] . '<br />';
+
+
+      ?>
+      
       <div class="spacer" style="width: 300px; height: 51px;"></div>
       <!-- <a ui-sref="profil" id="connexion-button3" class="button button-balanced  button-block">Connexion</a> -->
 
@@ -31,12 +35,15 @@
       <!-- <a id="connexion-button3" class="button button-balanced  button-block" name="formconnexion">Connexion</a> -->
       <a ui-sref="choix" id="connexion-button4" style="font-weight:500;font-size:-23px;" class="button button-positive  button-block button-clear">Ou inscrivez-vous!</a>
 
-    <?php if (isset($_GET['msg_connexion']))
+    </form>
+    <?php
+    
+    if (isset($_GET['msg_connexion']))
     {
       echo $_GET['msg_connexion'];
+
       set_time_limit(5);
     }
     ?>
-    </form>
   </ion-content>
 </ion-view>

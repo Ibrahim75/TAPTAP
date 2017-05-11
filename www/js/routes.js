@@ -12,7 +12,7 @@ angular.module('app.routes', [])
 
       .state('profil', {
     url: '/profil',
-    templateUrl: 'templates/profil.html',
+    templateUrl: 'templates/profil.php',
     controller: 'profilCtrl'
   })
 
@@ -33,6 +33,7 @@ angular.module('app.routes', [])
     templateUrl: 'templates/choix.html',
     controller: 'choixCtrl'
   })
+      
 
   .state('cours', {
     url: '/cours',
@@ -42,13 +43,14 @@ angular.module('app.routes', [])
 
   .state('rechercherVotreCours', {
     url: '/rechercherCours',
-    templateUrl: 'templates/rechercherVotreCours.html',
+    templateUrl: 'templates/rechercherVotreCours.php',
     controller: 'rechercherVotreCoursCtrl'
   })
+    
 
   .state('choixDuCours', {
-    url: '/choixDucours',
-    templateUrl: 'templates/choixDuCours.html',
+    url: '/choixDuCours',
+    templateUrl: 'templates/choixDuCours.php',
     controller: 'choixDuCoursCtrl'
   })
 
@@ -70,7 +72,14 @@ angular.module('app.routes', [])
     controller: 'inscrivezVousCtrl'
   })
 
-$urlRouterProvider.otherwise('/connexion')
+      .state('inscrivezVousE', {
+        url: '/page30',
+        templateUrl: 'templates/inscrivezVousE.html',
+        controller: 'inscrivezVousECtrl'
+      })
+
+
+  $urlRouterProvider.otherwise('/connexion')
 
   
 
