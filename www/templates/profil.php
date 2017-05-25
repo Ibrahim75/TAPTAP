@@ -1,4 +1,8 @@
-<?php session_start();?>
+<?php
+session_name('SESSION1');
+session_start();
+
+include("../connexion_t2.php");?>
 <ion-view title="profil" id="page1">
   <ion-content padding="true" class="has-header">
     <div>
@@ -12,11 +16,11 @@
     }
     ?>
 
+
+
     <div>
       <!-- <img src="<?php echo $_SESSION['PHOTO']?>" style="display: block; width: 50%; height: auto; margin-left: auto; margin-right: auto;"> -->
     </div>
-
-    <a href="deconnexion.php" id="profil-button2" class="button button-positive  button-block">Se déconnecter</a>
 
     <div id="profil-markdown13" style="text-align:center;" class="show-list-numbers-and-dots">
       <p style="color:#000000;">
@@ -57,15 +61,15 @@
 
 
 
-     // $test->setFetchMode(PDO::FETCH_ASSOC);
+      // $test->setFetchMode(PDO::FETCH_ASSOC);
       //$test2->setFetchMode(PDO::FETCH_ASSOC);
 
 
       //foreach($test as $row)
-     // {
+      // {
       //  $zzz = $row['NAME'];
       //  echo $zzz;
-     // }
+      // }
 
       $donnees = $test->fetchAll(PDO::FETCH_ASSOC);
       $result= $test->rowcount();
@@ -79,7 +83,7 @@
       ?>
       <?php
       foreach($donnees as $donnees){
-      ?>
+        ?>
 
         <ion-item class="item-icon-right" id="profil-list-item33"><?php echo $donnees['NAME']; ?> :
           <i class="icon ion-social-euro"><?php echo $donnees['PRIX']; ?></i>
@@ -89,25 +93,27 @@
       ?>
 
 
-    <a ui-sref="demander" id="profil-button2" class="button button-positive  button-block">Demander un cours</a>
-    <ion-list id="profil-list9">
 
-      <?php
-      foreach($donne as $donne){
-        ?>
-        <ion-item class="item-avatar" id="profil-list-item2">
-          <img src="img/5bqzEmx2Q8iyvY1Wo0pi_IMG_1747.PNG">
-          <h2><?php echo $donne['ELEVE_NAME']; ?></h2>
-          <p><?php echo $donne['NOTE']; ?></p>
-        </ion-item>
 
+      <a ui-sref="demander" id="profil-button2" class="button button-positive  button-block">Demander un cours</a>
+      <ion-list id="profil-list9">
 
         <?php
-      }
-      ?>
+        foreach($donne as $donne){
+          ?>
+          <ion-item class="item-avatar" id="profil-list-item2">
+            <img src="img/5bqzEmx2Q8iyvY1Wo0pi_IMG_1747.PNG">
+            <h2><?php echo $donne['ELEVE_NAME']; ?></h2>
+            <p><?php echo $donne['NOTE']; ?></p>
+          </ion-item>
 
 
-    </ion-list>
+          <?php
+        }
+        ?>
+
+
+      </ion-list>
   </ion-content>
 </ion-view>
 

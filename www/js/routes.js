@@ -56,7 +56,7 @@ angular.module('app.routes', [])
 
   .state('demander', {
     url: '/demander',
-    templateUrl: 'templates/demander.html',
+    templateUrl: 'templates/demander.php',
     controller: 'demanderCtrl'
   })
 
@@ -84,3 +84,4 @@ angular.module('app.routes', [])
   
 
 });
+
