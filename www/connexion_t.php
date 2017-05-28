@@ -1,5 +1,4 @@
 <?php
-session_name('SESSION');
 session_start();
 include("bdd_connect.php");
 
@@ -14,6 +13,7 @@ if(isset($_POST['formconnexion']))
 		$requser = $bdd->prepare("SELECT * FROM users WHERE MAIL=? AND PASSWORD=?");
 		$requser->execute(array($adresse_mailconnect, $mot_de_passeconnect));
 		$userexist = $requser->rowCount();
+
 		if($userexist == 1)
 		{
 			$userinfo = $requser->fetch();
@@ -29,18 +29,20 @@ if(isset($_POST['formconnexion']))
 			$_SESSION['USER_STATUS'] = $userinfo['USER_STATUS'];
 			$_SESSION['NBR_HEURE_DISP'] = $userinfo['NBR_HEURE_DISP'];
 			$_SESSION['NBR_HEURE_RECU'] = $userinfo['NBR_HEURE_RECU'];
+			// $_SESSION['PRIX'] = $userinfo['PRIX'];
+
 
 			// header('Location: Accueil.php');
 			//header("Location : profil.php?id=" . $_SESSION['id']);
 			
 			// echo "bonjour : " . $userinfo['NOM'] . $userinfo['id'] ;
 			// echo "vous êtes connecté";
-			header('Location: ../www/#/rechercherCours');
+			header('Location: ../www/#/profil');
 		}
 		else{
 
 			// echo "mdp incorrecte";
-			header('Location: ../www/#/connexion?msg_connexion=Mot de passe incorrecte');
+			header('Location: connexion.php?msg_connexion=Mot de passe incorrecte');
 		}
 
 	}

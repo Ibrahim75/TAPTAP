@@ -16,6 +16,12 @@ angular.module('app.routes', [])
     controller: 'profilCtrl'
   })
 
+        .state('modifprofil', {
+    url: '/modifprofil',
+    templateUrl: 'templates/modifprofil.php',
+    controller: 'modifprofilCtrl'
+  })
+
   .state('listeDeVosCours', {
     url: '/listeDeVosCours',
     templateUrl: 'templates/listeDeVosCours.html',
@@ -56,7 +62,7 @@ angular.module('app.routes', [])
 
   .state('demander', {
     url: '/demander',
-    templateUrl: 'templates/demander.php',
+    templateUrl: 'templates/demander.html',
     controller: 'demanderCtrl'
   })
 
@@ -84,4 +90,3 @@ angular.module('app.routes', [])
   
 
 });
-

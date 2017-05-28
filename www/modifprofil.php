@@ -16,31 +16,40 @@
       <!-- <img src="<?php echo $_SESSION['PHOTO']?>" style="display: block; width: 50%; height: auto; margin-left: auto; margin-right: auto;"> -->
     </div>
 
-    <a ui-sref="deconnexion.php" id="profil-button2" class="button button-positive  button-block">Se déconnecter</a>
-    <a href="modifprofil.php" id="profil-button2" class="button button-positive  button-block">Modifier mon profil</a>
+    <form action="modifprofil_t.php" method="post">
 
     <div id="profil-markdown13" style="text-align:center;" class="show-list-numbers-and-dots">
       <p style="color:#000000;">
         <strong> <?php echo $_SESSION['NOM']; ?>  <?php echo $_SESSION['PRENOM']; ?></strong>
       </p>
     </div>
+
     <div id="profil-markdown14" style="text-align:center;" class="show-list-numbers-and-dots">
-      <p style="color:#000000;"> <?php echo $_SESSION['TITRE'];?> </p>
-      <p style="color:#000000;"> <?php echo $_SESSION['NAME'];?> </p>
-    </div>
+
+    
+
+    <div id="profil-markdown14" style="text-align:center;" class="show-list-numbers-and-dots">
+    <label>Titre du profil : </label>
+    <input type="text" style= "width:100%"" name= "titre_profil" value="<?php echo $_SESSION['TITRE']?>" >
+    </div></br>
+
     <div id="profil-markdown9" style="text-align:center;" class="show-list-numbers-and-dots">
-      <p style="color:#000000;">
-        <strong>50€/h</strong>
-      </p>
-    </div>
-    <h4 id="profil-heading1" style="color:#000000;">Ma description</h4>
-    <div id="profil-markdown4" class="show-list-numbers-and-dots">
-      <p style="color:#000000;"><?php echo $_SESSION['DESCRIPTION'];?></p>
-    </div>
-    <h4 id="profil-heading2" style="color:#000000;">Formation</h4>
-    <div id="profil-markdown5" class="show-list-numbers-and-dots">
-      <p style="color:#000000;"> <?php echo $_SESSION['EXPERIENCE'];?> </p>
-    </div>
+    <label>Prix du cours : </label>
+    <input type="text" style= "width:100%"" name= "prix_matière" value= "à corriger" >
+    </div></br>
+
+    <div id="profil-markdown9" style="text-align:center;" class="show-list-numbers-and-dots">
+    <label>Ma description : </label>
+    <input type="text" style= "width:100%; height:70px" name= "description_profil" value= "<?php echo $_SESSION['DESCRIPTION'];?>">
+    </div></br>
+
+    <div id="profil-markdown9" style="text-align:center;" class="show-list-numbers-and-dots">
+    <label>Ma formation : </label>
+    <input type="text" style= "width:100%; height:70px" name= "formation_profil" value= "<?php echo $_SESSION['EXPERIENCE'];?>">
+    </div></br>
+
+
+
     <h4 id="profil-heading10" style="color:#000000;">Cours proposé : </h4>
     <ion-list id="profil-list22">
       <?php include("bdd_connect.php");
@@ -89,6 +98,9 @@
       }
       ?>
 
+ <input name="enregistrer" class="bouton_enregistrer" type="submit" value="Enregistrer les modifications" >
+
+     </form></br> </br>
 
     <a ui-sref="demander" id="profil-button2" class="button button-positive  button-block">Demander un cours</a>
     <ion-list id="profil-list9">
@@ -111,4 +123,3 @@
     </ion-list>
   </ion-content>
 </ion-view>
-

@@ -16,14 +16,17 @@
       <!-- <img src="<?php echo $_SESSION['PHOTO']?>" style="display: block; width: 50%; height: auto; margin-left: auto; margin-right: auto;"> -->
     </div>
 
-    <a ui-sref="deconnexion.php" id="profil-button2" class="button button-positive  button-block">Se déconnecter</a>
-    <a href="modifprofil.php" id="profil-button2" class="button button-positive  button-block">Modifier mon profil</a>
+    <form action="traitement_modif_profil.php" method="post">
 
     <div id="profil-markdown13" style="text-align:center;" class="show-list-numbers-and-dots">
       <p style="color:#000000;">
         <strong> <?php echo $_SESSION['NOM']; ?>  <?php echo $_SESSION['PRENOM']; ?></strong>
       </p>
     </div>
+    <div id="profil-markdown14" style="text-align:center;" class="show-list-numbers-and-dots">
+    <label>Titre du profil : </label>
+    <input class="#" type="text" name= "Titre_profil" value <?php echo $_SESSION['TITRE'];?> >
+
     <div id="profil-markdown14" style="text-align:center;" class="show-list-numbers-and-dots">
       <p style="color:#000000;"> <?php echo $_SESSION['TITRE'];?> </p>
       <p style="color:#000000;"> <?php echo $_SESSION['NAME'];?> </p>
@@ -111,4 +114,3 @@
     </ion-list>
   </ion-content>
 </ion-view>
-

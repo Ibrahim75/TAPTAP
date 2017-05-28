@@ -1,5 +1,4 @@
 <?php session_start();?>
-
 <ion-view title="Choix du cours" id="page8">
   <ion-content padding="false" class=" manual-remove-top-padding has-header">
     <?php
@@ -12,14 +11,11 @@
 
     <ion-list id="choixDuCours-list14">
       <ion-item class="item-icon-left dark" id="choixDuCours-list-item18">
-        <i class="icon ion-android-arrow-back"></i>Retour</ion-item><br>
+        <i class="icon ion-android-arrow-back"></i>Retour</ion-item>
       <?php include("bdd_connect.php");
       // On commence par récupérer les champs
-      if(isset($_POST['matieres']))      $nom=$_POST['matieres'];
+      if(isset($_POST['matiere']))      $nom=$_POST['matiere'];
       else      $nom="";
-      if(isset($_POST['lieu']))      $lieu=$_POST['lieu'];
-      else      $lieu="";
-
 
       if(empty($nom))
       {
@@ -30,30 +26,20 @@
       else {
 
 
-        $test = $bdd->query("SELECT DISTINCT a.PRENOM,a.NOM,a.USER_ID FROM users a inner join users_matiere b on a.USER_ID = b.USER_ID inner join matiere c on b.MATIERE_ID = c.MATIERE_ID WHERE c.NAME like'%$nom%' AND A.REGION like '%$lieu%'");
+        $test = $bdd->query("SELECT a.PRENOM FROM users a inner join users_matiere b on a.USER_ID = b.USER_ID inner join matiere c on b.MATIERE_ID = c.MATIERE_ID WHERE c.NAME='$nom'");
         //$test->bindParam(':nom', $nom);
         $nom=$_POST['matiere'];
         $test->setFetchMode(PDO::FETCH_ASSOC);
 
-        /*foreach ($test as $row) {
-          echo'<h1>'; echo $row['PRENOM'];echo '  '; echo $row['NOM'], '<br/>'; echo'ID :';echo $row['USER_ID']; echo'</h1>';
-        }*/
-
         foreach ($test as $row) {
-          echo $row['PRENOM'];echo '  '; echo $row['NOM'], '<br/>'; echo'ID :';echo $row['USER_ID'];
-          echo'<form method="post" action="connexion_t2.php" >
-                    <input type="hidden" name="user_id" value='; echo $row['USER_ID']; echo' >
-                    <input type="submit" name="Submit" value="Envoyer">
-                </form>';
+          echo $row['PRENOM'], '<br/>';
         }
       //  header('Location: ../www/#/choixDuCours');
       }
       ?>
 
-
-
-      <!--<ion-item class="item-thumbnail-left dark" id="choixDuCours-list-item17">
-     <img src="img/JBcdiWvQOaIZeCgUFsMH_jospeh.png">
+      <ion-item class="item-thumbnail-left dark" id="choixDuCours-list-item17">
+        <img src="img/JBcdiWvQOaIZeCgUFsMH_jospeh.png">
         <h2dark>Jonathan Joseph
           <p style="white-space:normal;">50€/h - Professeur de mathématique à l'UPMC.</p>
         </h2dark>
@@ -68,7 +54,7 @@
         <h2dark>Kevin Raharion
           <p style="white-space:normal;">50€/h - Professeur des écoles dans une école primaire.</p>
         </h2dark>
-      </ion-item>-->
+      </ion-item>
     </ion-list>
   </ion-content>
 </ion-view>

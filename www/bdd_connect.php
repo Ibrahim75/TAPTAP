@@ -1,7 +1,7 @@
 <?php
 try
 {
-    $bdd = new PDO('mysql:host=localhost:3306;dbname=teechme;charset=utf8', 'root', 'NON');
+    $bdd = new PDO('mysql:host=localhost:8889;dbname=teechme;charset=utf8', 'root', 'root');
 
 }
 catch(Exception $e)
