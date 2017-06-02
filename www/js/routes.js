@@ -16,12 +16,6 @@ angular.module('app.routes', [])
     controller: 'profilCtrl'
   })
 
-        .state('modifprofil', {
-    url: '/modifprofil',
-    templateUrl: 'templates/modifprofil.php',
-    controller: 'modifprofilCtrl'
-  })
-
   .state('listeDeVosCours', {
     url: '/listeDeVosCours',
     templateUrl: 'templates/listeDeVosCours.html',
@@ -62,7 +56,7 @@ angular.module('app.routes', [])
 
   .state('demander', {
     url: '/demander',
-    templateUrl: 'templates/demander.html',
+    templateUrl: 'templates/demander.php',
     controller: 'demanderCtrl'
   })
 
@@ -82,6 +76,36 @@ angular.module('app.routes', [])
         url: '/page30',
         templateUrl: 'templates/inscrivezVousE.html',
         controller: 'inscrivezVousECtrl'
+      })
+
+      .state('notif', {
+        url: '/page35',
+        templateUrl: 'templates/notif.php',
+        controller: 'notifCtrl'
+      })
+
+      .state('modifprofil', {
+        url: '/page40',
+        templateUrl: 'templates/modifprofil.php',
+        controller: 'modifprofilCtrl'
+      })
+
+      .state('accueil', {
+        url: '/page50',
+        templateUrl: 'templates/accueil.html',
+        controller: 'accueilCtrl'
+      })
+
+      .state('modifp', {
+        url: '/page55',
+        templateUrl: 'templates/modifp.php',
+        controller: 'modifpCtrl'
+      })
+
+      .state('deconnexion', {
+        url: '/deconnexion',
+        templateUrl: 'templates/deconnexion.php',
+        controller: 'deconnexionCtrl'
       })
 
 

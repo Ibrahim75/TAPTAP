@@ -26,14 +26,23 @@
                     <input type="text" name="password" placeholder="">
                 </label>
                 <label class="item item-input" id="inscrivezVous-input10">
-                    <span class="input-label">Phone :</span>
-                    <input type="text" name="phone" placeholder="">
+                <span class="input-label">Phone :</span>
+                <input type="text" name="phone" placeholder="">
+            </label>
+                <label class="item item-select" id="rechercherVotreCours-select1" >
+                    <span class="input-label">Régions :</span>
+                    <select name="lieu">
+                        <option value="">Choisir</option>
+                        <option value="Île-de-France">Île-de-France</option>
+                        <option value="Normandie">Normandie</option>
+                        <option value="Bretagne">Bretagne</option>
+                        <option value="Occitanie">Occitanie</option>
+                    </select>
                 </label>
-
 
             </ion-list>
             <div class="spacer" style="width: 300px; height: 26px;"></div>
-            <input type="submit" value="Envoyer" name="envoyer">
+            <input id="connexion-button3" class="button button-balanced  button-block" type="submit" name="envoyer" value="Envoyer">
         </form>
     </ion-content>
 </ion-view>

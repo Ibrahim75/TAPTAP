@@ -1,20 +1,19 @@
 <?php
-session_name('SESSION');
+session_name('SESSION1');
 session_start();
 include("bdd_connect.php");
 
-if(isset($_POST['formconnexion']))
+if(isset($_POST['Submit']))
 {
-	$adresse_mailconnect= $_POST['mail'];
-	$mot_de_passeconnect = md5($_POST['mdp']);
+	$adresse_mailconnect= $_POST['user_id'];
 
-	if(!empty($adresse_mailconnect) AND !empty($mot_de_passeconnect))
+	if(!empty($adresse_mailconnect) )
 	{
 
-		$requser = $bdd->prepare("SELECT * FROM users WHERE MAIL=? AND PASSWORD=?");
-		$requser->execute(array($adresse_mailconnect, $mot_de_passeconnect));
+		$requser = $bdd->prepare("SELECT * FROM users WHERE USER_ID=? ");
+		$requser->execute(array($adresse_mailconnect));
 		$userexist = $requser->rowCount();
-		if($userexist == 1)
+		if($userexist = 1)
 		{
 			$userinfo = $requser->fetch();
 			$_SESSION['USER_ID'] = $userinfo['USER_ID'];
@@ -35,7 +34,7 @@ if(isset($_POST['formconnexion']))
 			
 			// echo "bonjour : " . $userinfo['NOM'] . $userinfo['id'] ;
 			// echo "vous êtes connecté";
-			header('Location: ../www/#/page50');
+			header('Location: ../www/#/profil');
 		}
 		else{
 

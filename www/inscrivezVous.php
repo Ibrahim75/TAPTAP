@@ -21,11 +21,14 @@ else      $email="";
 if(isset($_POST['phone']))      $phone=$_POST['phone'];
 else      $phone="";
 
+if(isset($_POST['lieu']))      $phone=$_POST['lieu'];
+else      $lieu="";
+
 
 // On vérifie si les champs sont vides
 if(empty($nom) OR empty($prenom) OR empty($email) OR empty($phone) OR empty($password))
 {
-    echo '<font color="red">Attention, seul le champs <b>ICQ</b> peut rester vide !</font>';
+    echo '<font color="red">veuillez tout remplir</font>';
 }
 
 // Aucun champ n'est vide, on peut enregistrer dans la table
@@ -40,12 +43,13 @@ else
     // $sql = $bdd->prepare("INSERT INTO users(USER_ID, NOM, PRENOM,MAIL) VALUES('','$nom','$prenom','$email')")
     //  or exit(print_r($bdd->errorInfo()));
 
-    $sql = $bdd->prepare("INSERT INTO users(USER_ID,USER_STATUS, NOM, PRENOM,MAIL, PHONE,PASSWORD) VALUES('','2',:nom,:prenom,:email,:phone,:password)");
+    $sql = $bdd->prepare("INSERT INTO users(USER_ID,USER_STATUS, NOM, PRENOM,MAIL, PHONE,PASSWORD,REGION) VALUES('','2',:nom,:prenom,:email,:phone,:password,:lieu)");
     $sql->bindParam(':nom', $nom);
     $sql->bindParam(':prenom', $prenom);
     $sql->bindParam(':email', $email);
-    $sql->bindParam(':password', $password);
+    $sql->bindParam(':password', md5($password));
     $sql->bindParam(':phone', $phone);
+    $sql->bindParam(':lieu', $lieu);
     // on insère les informations du formulaire dans la table
     //  mysql_query($sql) or die('Erreur SQL !'.$sql.'<br>'.mysql_error());
     $nom=$_POST['nom'];
@@ -53,6 +57,7 @@ else
     $email=$_POST['email'];
     $password=$_POST['password'];
     $phone=$_POST['phone'];
+    $lieu=$_POST['lieu'];
     $sql->execute();
     // on affiche le résultat pour le visiteur
 
